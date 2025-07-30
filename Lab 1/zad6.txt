@@ -1,0 +1,5 @@
+U ispisu programa vidimo da se u konstruktoru klase Base poziva metoda 
+metoda(), koja dalje poziva virtualnu metodu virtualnaMetoda(). 
+Iako je objekt stvarno instanca klase Derived, u tom trenutku još nije 
+dovršena inicijalizacija Derived dijela objekta, pa se poziva bazna 
+implementacija metode virtualnaMetoda().

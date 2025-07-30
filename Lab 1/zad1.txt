@@ -1,0 +1,8 @@
+struct Animal -> base (apstraktna) klasa
+name -> članska varijabla klase
+table -> pokazivač na virtualnu tablicu
+catGreet, catMenu, dogGreet, dogMenu -> virtualne metode
+constructDog, constructCat -> konstruktori
+createDog, createCat -> dinamički alokatori
+dogTable, catTable -> virtualne tablice
+animalPrintGreeting, animalPrintMenu -> poziv metode preko virtualne tablice

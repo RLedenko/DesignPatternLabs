@@ -1,0 +1,9 @@
+Vidimo da osnovni razred omogućava da grafički podsustav samostalno poziva naš kod za crtanje kad god se za to javi
+potreba, iako je oblikovan i izveden davno prije naše grafičke komponente. Koji oblikovni obrazac to omogućava?
+
+Obrazac okvirna metoda
+
+Vidimo također da naša grafička komponenta preko osnovnog razreda može dobiti informacije o pritisnutim tipkama
+bez potrebe za čekanjem u radnoj petlji. Koji oblikovni obrazac to omogućava?
+
+Obrazac promatrač

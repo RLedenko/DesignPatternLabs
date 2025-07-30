@@ -1,0 +1,6 @@
+Izlaz na windows 10 (x64) je:
+  CoolClass: 16
+  PlainOldClass: 4
+Razlog je taj što klasa sa virtualnim funckijama stvara tablicu virtualnih funkcija.
+Ta tablica služi za dinamički poziv funkcija i omogućuje polimorfizam za vrijeme
+izvođenja.

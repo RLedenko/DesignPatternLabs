@@ -1,0 +1,5 @@
+Za izvore brojeva očito moramo koristiti oblikovni obrazac strategija,
+najbolje se poklapa sa zahtjevom da SlijedBrojeva mora moći koristiti 
+različite izvore brojeva. Za akcije, kako ih trebamo imati jednu ili 
+više i izvode se nakon svakog čitanja broja, prikladna strategija je 
+promatrač.

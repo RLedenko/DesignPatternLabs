@@ -1,0 +1,2 @@
+Kako je python dinamički jezik, D.get vraća referencu na funkciju
+iz dict objekta D.

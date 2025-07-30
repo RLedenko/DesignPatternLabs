@@ -1,0 +1,11 @@
+Prednosti:
+   - Svi podatci su predstavljeni svojim stvarnim tipom podataka, pa
+     pri prevođenju, prevoditelj može pronaći greške
+   - Tipovi su generički i rade sa svim tipovima iteratora (uključujući
+     pointere) i bilo kojom lambdom/funkcijom za usporedbu
+   - Kako se tip može odrediti, prevoditelj može optimizirati kod
+
+Nedostatci
+   - Za svaki tip nad kojim pozivamo funkciju, prevoditelj generira
+     novu verziju funkcije (bloat)
+   - Radi samo u C++ programima i nije kompatibilna sa C kodom

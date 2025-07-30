@@ -1,0 +1,68 @@
+1.
+linija 126
+	sub	rsp, 56
+	.seh_stackalloc	56
+
+2.
+poc se alocira na stogu jer ne zahtjeva dinamičku 
+alokaciju memorije, a *pb pokazuje na objekt dinamički
+stvoren na hrpi.
+
+3.
+Ne postoji
+
+4.
+linija 136
+    call	CoolClass::CoolClass()
+
+cijeli konstruktor:
+
+CoolClass::CoolClass():                    //
+.LFB10:                                    // alociranje prostora za lokalne varijable
+	push	rbp                            // .
+	.seh_pushreg	rbp                    // .
+	mov	rbp, rsp                           // .
+	.seh_setframe	rbp, 0                 // .
+	sub	rsp, 32                            // .
+	.seh_stackalloc	32                     // .
+	.seh_endprologue                       // .
+	mov	QWORD PTR 16[rbp], rcx             // stvaranje this pokazivača
+	mov	rax, QWORD PTR 16[rbp]             // spremanje this na stog
+	mov	rcx, rax                           // 
+	call	Base::Base()                   // poziv konstruktora Base klase
+	lea	rdx, vtable for CoolClass[rip 16]  // postavljanje virtualne tablice za CoolClass
+	mov	rax, QWORD PTR 16[rbp]             // 
+	mov	QWORD PTR [rax], rdx               // u this objektu se postavlja pokazivač na vtable
+	nop                                    //
+	add	rsp, 32                            // dealokacija prostora za lokalne varijable
+ 	pop	rbp                                // .
+	ret                                    // povratak iz potprograma
+                                        
+5.
+poc.set() kod:
+    call	PlainOldClass::set(int)
+
+pb->set() kod:
+    mov	rax, QWORD PTR -8[rbp]             // određivanje koju funkciju pozvati na temelju vtablica
+	mov	rax, QWORD PTR [rax]               // .
+	mov	r8, QWORD PTR [rax]                // .
+	mov	rax, QWORD PTR -8[rbp]             // .
+	mov	edx, 42                            // .
+	mov	rcx, rax                           // .
+	call	r8                             // poziv određene funckije
+
+Za poc program samo pozove potprogram, a kod *pb prvo mora odrediti iz 
+vtablica koju funkciju pozvati. Iz tog opisa lako zaključujemo da se 
+PlainOldClass::set(int) može inline-at jer je statična i ne-virtualna.
+
+6.
+	.seh_endproc
+	.globl	vtable for CoolClass
+	.section	.rdata$vtable for CoolClass,"dr"
+	.linkonce same_size
+	.align 8
+vtable for CoolClass:
+	.quad	0
+	.quad	typeinfo for CoolClass
+	.quad	CoolClass::set(int)
+	.quad	CoolClass::get()

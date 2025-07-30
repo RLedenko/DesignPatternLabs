@@ -1,0 +1,3 @@
+Moje rješenje odgovara obrascu promatrač. To zaključujem jer svaka čelija,
+kad promijeni svoju vrijednost, obavještava sve čelije koje ovise o njoj
+kako bi i one adekvatno promijenile svoju vrijednost.

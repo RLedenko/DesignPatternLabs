@@ -1,0 +1,4 @@
+Svojstva OOP pristupa rješenju su bolja jer rješavaju problem krhkosti.
+Svaka nova klasa će imati svoju implementaciju funkcija move i draw koje
+će funkcije za procesiranje (ovdje drawShapes i moveShapes) pozvati, a
+prevoditelj odrediti koju implementaciju trenutno traže.

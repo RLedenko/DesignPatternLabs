@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ooup_lab3:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ooup_lab3_jar</output-path>
+    <root id="archive" name="ooup_lab3.jar">
+      <element id="module-output" name="ooup_lab3" />
+    </root>
+  </artifact>
+</component>
